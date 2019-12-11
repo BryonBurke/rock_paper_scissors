@@ -7,11 +7,20 @@ class RPS
 
   def game_play()
     final_input = @input.downcase()
-    computer = "scissors"
+    choice = rand(3)
+    if choice === 0
+      computer = "rock"
+    elsif choice === 1
+      computer = "paper"
+    else
+      computer = "scissors"
+    end
+
+    puts computer
     if final_input == computer
       final_answer = "You tied"
     else
-      new_answer = @win_lose.fetch(final_input)
+      new_answer = @win_lose.fetch.(final_input)
       if new_answer == computer
         final_answer = "You win"
       else
@@ -21,3 +30,22 @@ class RPS
     final_answer
   end
 end
+
+
+
+
+# def game_play()
+#   final_input = @input.downcase()
+#   computer = "scissors"
+#   if final_input == computer
+#     final_answer = "You tied"
+#   else
+#     new_answer = @win_lose.fetch(final_input)
+#     if new_answer == computer
+#       final_answer = "You win"
+#     else
+#       final_answer = "You lose"
+#     end
+#   end
+#   final_answer
+# end
